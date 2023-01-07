@@ -6,7 +6,7 @@ And change in `.env` file current credentials with yours.
 
 Run the two commands:
 
-`CREATE TABLE moviess_table (
+`CREATE TABLE movies_table (
 imdbID varchar(255) PRIMARY KEY,
 title varchar(255),
 year varchar(255),
