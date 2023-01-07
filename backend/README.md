@@ -1,4 +1,4 @@
-# Steps to run the project accordly
+# Steps to run the project accordingly
 
 You need to have a `mysql - database` installed locally.
 
