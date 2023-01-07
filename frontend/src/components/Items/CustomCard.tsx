@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Image, Group, Text, Badge, Button} from "@mantine/core";
+import { Card, Image, Group, Text, Badge} from "@mantine/core";
 import {CustomCardProps} from "./ICustomCard";
 import {ReactJSXElement} from "@emotion/react/types/jsx-namespace";
 

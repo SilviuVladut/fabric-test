@@ -4,10 +4,12 @@ import { IconChevronDown, IconFileImport } from "@tabler/icons";
 import { useActionsStyle } from "./useActionSectionStyle";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import { ActionProps } from "./IActions";
-import {matrix} from "../../utils/moviesName";
+import { matrix } from "../../utils/moviesName";
 
 export const Actions: (props: ActionProps) => ReactJSXElement = ({
   onBtnClick,
+  onSortClick,
+  sortDisabled,
 }) => {
   const { classes, theme } = useActionsStyle();
 
@@ -27,7 +29,7 @@ export const Actions: (props: ActionProps) => ReactJSXElement = ({
             leftIcon={<IconFileImport />}
             onClick={() => onBtnClick(matrix.Simple)}
           >
-           See all "Matrix"
+            See all "Matrix"
           </Button>
           <Button
             variant="outline"
@@ -56,16 +58,16 @@ export const Actions: (props: ActionProps) => ReactJSXElement = ({
               Sort by
             </Text>
             <Select
+              disabled={sortDisabled}
               color={theme.primaryColor}
               size="sm"
               data={[
-                { value: "rating", label: "Year Ascending" },
-                { value: "asc", label: "Year Descending" }
+                { value: "year-asc", label: "Year Ascending" },
+                { value: "year-desc", label: "Year Descending" },
               ]}
               placeholder="Option"
-              // value={sorter ? sorter : ''}
               variant="unstyled"
-              // onChange={onSort}
+              onChange={e => e && onSortClick(e.split('-')[0],e.split('-')[1])}
               rightSection={
                 <IconChevronDown
                   color={theme.colors.blue[4]}
