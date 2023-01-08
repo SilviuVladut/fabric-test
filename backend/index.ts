@@ -18,3 +18,5 @@ app.use('/api/v1', moviesRoute);
 app.listen(port, () => {
     console.log(`Running on port ${port}.`);
 });
+
+export default app;

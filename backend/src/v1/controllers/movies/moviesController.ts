@@ -71,6 +71,7 @@ const sendDataSorted = (
       sortMode === "asc"
         ? data.sort((a, b) => parseFloat(a.Year) - parseFloat(b.Year))
         : data.sort((a, b) => parseFloat(b.Year) - parseFloat(a.Year));
+
     res.status(200).send({response: sortedData});
   }
 
@@ -93,7 +94,7 @@ const getExternalData = (
     })
     .catch((err) => {
       console.error(err);
-      res.status(503).send("Service unavailable! Please try again!")
+      res.status(503).send("Service unavailable! Please try again!");
     });
 
   externalApi.then((response) => {
@@ -102,7 +103,7 @@ const getExternalData = (
       ? sendDataSorted(res, externalData, sortBy, sortMode)
       : res.status(200).send({ response: externalData });
 
-    checkIfDataExists(externalData);
+    externalData && checkIfDataExists(externalData);
   });
 };
 
@@ -112,8 +113,7 @@ export const getMovies = async (req: Request, res: Response) => {
   const sortMode: string | undefined = req.query.sortMode as string | undefined;
 
   if (!movieName) {
-    res.send({ response: "Invalid query sent." }).status(400);
-  }
-
-  getExternalData(res, movieName, sortBy, sortMode);
+    res.statusMessage = "Invalid query!";
+    res.status(400).end();
+  } else getExternalData(res, movieName, sortBy, sortMode);
 };
