@@ -8,7 +8,7 @@ import {ReactJSXElement} from "@emotion/react/types/jsx-namespace";
 export const CustomHeader: (props: HeaderProps) => ReactJSXElement = ({logo}) => {
     const {classes} = useHeaderStyle();
     return (<>
-        <Header height={80} mb="md" className={classes.container} bg="gray.0">
+        <Header height={80} mb="md" className={classes.container} bg="gray.0" data-testid="test-logo-1">
             <a href="/" className={classes.logo}>
                 <img alt="fabric-logo" src={logo}/>
             </a>

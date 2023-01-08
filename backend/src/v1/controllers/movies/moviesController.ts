@@ -91,13 +91,17 @@ const getExternalData = (
     .then((resp) => {
       return resp.data;
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      console.error(err);
+      res.status(503).send("Service unavailable! Please try again!")
+    });
 
   externalApi.then((response) => {
     const externalData: Movie[] = response.Search;
     sortBy
       ? sendDataSorted(res, externalData, sortBy, sortMode)
       : res.status(200).send({ response: externalData });
+
     checkIfDataExists(externalData);
   });
 };

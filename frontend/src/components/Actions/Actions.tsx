@@ -19,6 +19,7 @@ export const Actions: (props: ActionProps) => ReactJSXElement = ({
         justify="space-between"
         direction={{ base: "column", md: "row" }}
         my="md"
+        data-testid="actions-test-id"
       >
         <Flex justify="center" direction={{ base: "column", sm: "row" }}>
           <Button
@@ -28,6 +29,7 @@ export const Actions: (props: ActionProps) => ReactJSXElement = ({
             radius="md"
             leftIcon={<IconFileImport />}
             onClick={() => onBtnClick(matrix.Simple)}
+            data-testid="actions-btn1"
           >
             See all "Matrix"
           </Button>
@@ -38,6 +40,7 @@ export const Actions: (props: ActionProps) => ReactJSXElement = ({
             radius="md"
             leftIcon={<IconFileImport />}
             onClick={() => onBtnClick(matrix.Reloaded)}
+            data-testid="actions-btn2"
           >
             See all "Matrix Reloaded"
           </Button>
@@ -48,6 +51,7 @@ export const Actions: (props: ActionProps) => ReactJSXElement = ({
             radius="md"
             leftIcon={<IconFileImport />}
             onClick={() => onBtnClick(matrix.Revolutions)}
+            data-testid="actions-btn3"
           >
             See all "Matrix Revolutions"
           </Button>
@@ -68,6 +72,7 @@ export const Actions: (props: ActionProps) => ReactJSXElement = ({
               placeholder="Option"
               variant="unstyled"
               onChange={e => e && onSortClick(e.split('-')[0],e.split('-')[1])}
+              data-testid="actions-btn4"
               rightSection={
                 <IconChevronDown
                   color={theme.colors.blue[4]}
