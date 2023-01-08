@@ -25,6 +25,7 @@ export const MainPage = () => {
       .then((resp) => resp.json())
       .then((response: { response: Movie[] }) => {
         setDataArray(response.response);
+        setAlertVisible(false);
         setIsDataLoading(false);
       })
       .catch((err) => {
